@@ -1,7 +1,9 @@
 version: '3'
 
 volumes:
-  tenant_management_local_postgres_data: {}
+  tenant_management_local_postgres_data_1: {}
+  tenant_management_local_postgres_data_2: {}
+  tenant_management_local_postgres_data_3: {}
 
 services:
   django:
@@ -11,15 +13,29 @@ services:
     image: neo_tenant_management:latest
     container_name: neo_tenant_management
     depends_on:
-      - postgres
+      - postgres1
+      - postgres2
+      - postgres3
     volumes:
       - .:/app:z
     ports:
       - '8000:8000'
 
-  postgres:
+  postgres1:
     image: postgres:15
     volumes:
-      - tenant_management_local_postgres_data:/var/lib/postgresql/data
+      - tenant_management_local_postgres_data_1:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres2:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_2:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres3:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_3:/var/lib/postgresql/data
     env_file:
       - .env

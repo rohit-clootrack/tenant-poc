@@ -3,6 +3,8 @@
 import os
 import sys
 
+from tenant_management.app.utils.db_config import set_db_for_router
+
 
 def main():
     """Run administrative tasks."""
@@ -15,7 +17,17 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
-    execute_from_command_line(sys.argv)
+    from django.db import connection
+
+    args = sys.argv
+    db = args[1]
+    print(f"db: {db}")
+    with connection.cursor() as cursor:
+        set_db_for_router(db)
+        del args[1]
+        print(f"args: {args}")
+        execute_from_command_line(args)
+    # execute_from_command_line(sys.argv)
 
 
 if __name__ == "__main__":
