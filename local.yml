@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  tenant_management_local_postgres_data: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: neo_tenant_management:latest
+    container_name: neo_tenant_management
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app:z
+    ports:
+      - '8000:8000'
+
+  postgres:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
