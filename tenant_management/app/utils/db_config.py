@@ -2,9 +2,10 @@ import threading
 
 
 def tenant_db_from_the_request(request):
-    hostname = request.headers.get("tenant_id")
+    hostname = request.headers.get("X-Tenant-Id")
     tenants_map = get_tenants_map()
-    return tenants_map.get(hostname)
+    db = tenants_map.get(hostname)
+    return db
 
 
 def get_tenants_map():
@@ -12,6 +13,8 @@ def get_tenants_map():
         "one": "default",
         "two": "db_two",
         "three": "db_three",
+        "four": "db_four",
+        "five": "db_five",
     }
 
 
