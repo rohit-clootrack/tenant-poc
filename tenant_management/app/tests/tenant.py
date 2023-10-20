@@ -44,9 +44,7 @@ class TenantAPITestCase(APITestCase):
         self.assertEqual(response.data["first_name"], "Bob")
 
     def test_update_tenant(self):
-        tenant = Tenant.objects.create(
-            first_name="Charlie", last_name="Brown", email="charlie@gmail.com"
-        )
+        tenant = Tenant.objects.create(first_name="Charlie", last_name="Brown", email="charlie@gmail.com")
         url = reverse("tenant", args=[tenant.id])
         updated_data = {"first_name": "David", "last_name": "Smith", "email": "david@gmail.com"}
         response = self.client.put(url, updated_data, format="json")
