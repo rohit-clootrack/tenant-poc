@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.pagination import LimitOffsetPagination
@@ -49,3 +50,32 @@ class TenantRetrieveUpdateDeleteAPIView(APIView):
         tenant = get_object_or_404(Tenant, pk=pk)
         tenant.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class AddDatabaseClientDBAPI(APIView):
+    @staticmethod
+    def get(request):
+        print("======================================================")
+        print("Setting the db_five in the settings.DATABASES")
+        print("======================================================")
+        DB_NAME = "db_five"
+        configs = {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": "postgres1",
+            "PORT": 5432,
+            "NAME": "tenant_management",
+            "USER": "ygFevkWspveZyQtiWLKAZeUTnDUzQ",
+            "PASSWORD": "XJf9ErJYGv2cbaOytXvsdFZKxiMsVTl1JtnvO0HkePxPhbvVfYlXQc7xIu",
+            "ATOMIC_REQUESTS": False,
+            "AUTOCOMMIT": True,
+            "CONN_HEALTH_CHECKS": False,
+            "CONN_MAX_AGE": 0,
+            "TIME_ZONE": None,
+            "OPTIONS": {},
+            "TEST": {"CHARSET": None, "COLLATION": None, "MIGRATE": True, "MIRROR": None, "NAME": None},
+        }
+        settings.DATABASES[DB_NAME] = configs
+        print("======================================================")
+        print("Successfully set db_five config in the settings.DATABASES")
+        print("======================================================")
+        return Response({"status": "success", "response": {}, "message": "Added new DB successfully"})

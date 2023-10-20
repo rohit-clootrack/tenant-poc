@@ -122,14 +122,6 @@ DATABASES = {
         "HOST": "postgres4",
         "PORT": env("POSTGRES_PORT"),
     },
-    "db_five": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("POSTGRES_DB"),
-        "USER": env("POSTGRES_USER"),
-        "PASSWORD": env("POSTGRES_PASSWORD"),
-        "HOST": "postgres5",
-        "PORT": env("POSTGRES_PORT"),
-    },
 }
 
 # Password validation

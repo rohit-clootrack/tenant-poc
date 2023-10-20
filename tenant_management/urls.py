@@ -30,6 +30,7 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("admin/", admin.site.urls),
     # Custom views
+    path("api/v1.0/add_tenant_db/", tenant_views.AddDatabaseClientDBAPI.as_view(), name="add_tenant_db"),
     path("api/v1.0/tenants/", tenant_views.TenantListCreateAPIView.as_view(), name="tenants"),
     path("api/v1.0/tenants/<int:pk>", tenant_views.TenantRetrieveUpdateDeleteAPIView.as_view(), name="tenant"),
     # OpenAPI - Swagger
