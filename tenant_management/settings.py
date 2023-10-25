@@ -210,6 +210,46 @@ DATABASES = {
         "HOST": "postgres15",
         "PORT": env("POSTGRES_PORT"),
     },
+    "db_sixteen": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres16",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_seventeen": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres17",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_eighteen": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres18",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_nineteen": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres19",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_twenty": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres20",
+        "PORT": env("POSTGRES_PORT"),
+    },
 }
 
 # Password validation

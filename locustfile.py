@@ -167,6 +167,61 @@ class TenantTest(HttpUser):
         headers = {"X-Tenant-Id": "fifteen"}
         self.client.post("/tenants/", json=payload, headers=headers)
 
+    @task
+    def get_tenants_sixteen(self):
+        headers = {"X-Tenant-Id": "sixteen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_sixteen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "sixteen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_seventeen(self):
+        headers = {"X-Tenant-Id": "seventeen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_seventeen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "seventeen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_eighteen(self):
+        headers = {"X-Tenant-Id": "eighteen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_eighteen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "eighteen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_nineteen(self):
+        headers = {"X-Tenant-Id": "nineteen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_nineteen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "nineteen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_twenty(self):
+        headers = {"X-Tenant-Id": "twenty"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_twenty(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "twenty"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
 
 """
 import requests

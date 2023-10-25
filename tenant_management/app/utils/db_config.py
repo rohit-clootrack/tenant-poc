@@ -25,6 +25,11 @@ def get_tenants_map():
         "thirteen": "db_thirteen",
         "fourteen": "db_fourteen",
         "fifteen": "db_fifteen",
+        "sixteen": "db_sixteen",
+        "seventeen": "db_seventeen",
+        "eighteen": "db_eighteen",
+        "nineteen": "db_nineteen",
+        "twenty": "db_twenty",
     }
 
 
