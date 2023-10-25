@@ -112,6 +112,61 @@ class TenantTest(HttpUser):
         headers = {"X-Tenant-Id": "ten"}
         self.client.post("/tenants/", json=payload, headers=headers)
 
+    @task
+    def get_tenants_eleven(self):
+        headers = {"X-Tenant-Id": "eleven"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_eleven(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "eleven"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_twelve(self):
+        headers = {"X-Tenant-Id": "twelve"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_twelve(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "twelve"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_thirteen(self):
+        headers = {"X-Tenant-Id": "thirteen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_thirteen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "thirteen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_fourteen(self):
+        headers = {"X-Tenant-Id": "fourteen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_fourteen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "fourteen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def get_tenants_fifteen(self):
+        headers = {"X-Tenant-Id": "fifteen"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def create_tenants_fifteen(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "fifteen"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
 
 """
 import requests

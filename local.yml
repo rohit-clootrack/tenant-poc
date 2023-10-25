@@ -11,6 +11,11 @@ volumes:
   tenant_management_local_postgres_data_8: { }
   tenant_management_local_postgres_data_9: { }
   tenant_management_local_postgres_data_10: { }
+  tenant_management_local_postgres_data_11: { }
+  tenant_management_local_postgres_data_12: { }
+  tenant_management_local_postgres_data_13: { }
+  tenant_management_local_postgres_data_14: { }
+  tenant_management_local_postgres_data_15: { }
 
 
 services:
@@ -31,6 +36,11 @@ services:
       - postgres8
       - postgres9
       - postgres10
+      - postgres11
+      - postgres12
+      - postgres13
+      - postgres14
+      - postgres15
     volumes:
       - .:/app:z
     ports:
@@ -95,5 +105,35 @@ services:
     image: postgres:15
     volumes:
       - tenant_management_local_postgres_data_10:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres11:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_11:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres12:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_12:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres13:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_13:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres14:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_14:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres15:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_15:/var/lib/postgresql/data
     env_file:
       - .env
