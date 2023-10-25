@@ -130,6 +130,46 @@ DATABASES = {
         "HOST": "postgres5",
         "PORT": env("POSTGRES_PORT"),
     },
+    "db_six": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres6",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_seven": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres7",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_eight": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres8",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_nine": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres9",
+        "PORT": env("POSTGRES_PORT"),
+    },
+    "db_ten": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": "postgres10",
+        "PORT": env("POSTGRES_PORT"),
+    },
 }
 
 # Password validation

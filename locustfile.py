@@ -28,6 +28,31 @@ class TenantTest(HttpUser):
         self.client.get("/tenants", headers=headers)
 
     @task
+    def get_tenants_six(self):
+        headers = {"X-Tenant-Id": "six"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def get_tenants_seven(self):
+        headers = {"X-Tenant-Id": "seven"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def get_tenants_eight(self):
+        headers = {"X-Tenant-Id": "eight"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def get_tenants_nine(self):
+        headers = {"X-Tenant-Id": "nine"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
+    def get_tenants_ten(self):
+        headers = {"X-Tenant-Id": "ten"}
+        self.client.get("/tenants", headers=headers)
+
+    @task
     def create_tenants_one(self):
         payload = {"first_name": "John", "last_name": "Doe"}
         headers = {"X-Tenant-Id": "one"}
@@ -55,6 +80,36 @@ class TenantTest(HttpUser):
     def create_tenants_five(self):
         payload = {"first_name": "John", "last_name": "Doe"}
         headers = {"X-Tenant-Id": "five"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def create_tenants_six(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "six"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def create_tenants_seven(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "seven"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def create_tenants_eight(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "eight"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def create_tenants_nine(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "nine"}
+        self.client.post("/tenants/", json=payload, headers=headers)
+
+    @task
+    def create_tenants_ten(self):
+        payload = {"first_name": "John", "last_name": "Doe"}
+        headers = {"X-Tenant-Id": "ten"}
         self.client.post("/tenants/", json=payload, headers=headers)
 
 

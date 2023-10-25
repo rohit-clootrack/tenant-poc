@@ -6,6 +6,12 @@ volumes:
   tenant_management_local_postgres_data_3: { }
   tenant_management_local_postgres_data_4: { }
   tenant_management_local_postgres_data_5: { }
+  tenant_management_local_postgres_data_6: { }
+  tenant_management_local_postgres_data_7: { }
+  tenant_management_local_postgres_data_8: { }
+  tenant_management_local_postgres_data_9: { }
+  tenant_management_local_postgres_data_10: { }
+
 
 services:
   django:
@@ -20,6 +26,11 @@ services:
       - postgres3
       - postgres4
       - postgres5
+      - postgres6
+      - postgres7
+      - postgres8
+      - postgres9
+      - postgres10
     volumes:
       - .:/app:z
     ports:
@@ -53,5 +64,36 @@ services:
     image: postgres:15
     volumes:
       - tenant_management_local_postgres_data_5:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  postgres6:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_6:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres7:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_7:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres8:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_8:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres9:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_9:/var/lib/postgresql/data
+    env_file:
+      - .env
+  postgres10:
+    image: postgres:15
+    volumes:
+      - tenant_management_local_postgres_data_10:/var/lib/postgresql/data
     env_file:
       - .env
