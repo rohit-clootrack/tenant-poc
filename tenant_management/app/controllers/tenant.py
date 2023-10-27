@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core import management
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.pagination import LimitOffsetPagination
@@ -61,7 +62,7 @@ class AddDatabaseClientDBAPI(APIView):
         DB_NAME = "db_five"
         configs = {
             "ENGINE": "django.db.backends.postgresql",
-            "HOST": "postgres1",
+            "HOST": "postgres5",
             "PORT": 5432,
             "NAME": "tenant_management",
             "USER": "ygFevkWspveZyQtiWLKAZeUTnDUzQ",
@@ -75,7 +76,10 @@ class AddDatabaseClientDBAPI(APIView):
             "TEST": {"CHARSET": None, "COLLATION": None, "MIGRATE": True, "MIRROR": None, "NAME": None},
         }
         settings.DATABASES[DB_NAME] = configs
+        print("Calling the migrate command")
+        management.call_command("migrate", app_label="app", database=DB_NAME)
+
         print("======================================================")
         print("Successfully set db_five config in the settings.DATABASES")
         print("======================================================")
-        return Response({"status": "success", "response": {}, "message": "Added new DB successfully"})
+        return Response({"status": "success", "response": settings.DATABASES, "message": "Added new DB successfully"})
