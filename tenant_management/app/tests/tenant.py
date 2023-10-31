@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from tenant_management.app.models.tenant import Tenant
+from tenant_management.app.models.employee import Tenant
 
 
 class TenantModelTestCase(TestCase):
