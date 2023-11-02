@@ -1,11 +1,11 @@
 from rest_framework import renderers, serializers
 
-from tenant_management.app.models.tenant import Tenant
+from tenant_management.app.models.employee import Employee
 
 
 class TenantSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tenant
+        model = Employee
         fields = "__all__"
 
 

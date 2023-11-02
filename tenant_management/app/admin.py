@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from tenant_management.app.models.tenant import Tenant
+from tenant_management.app.models.employee import Employee
 
 
-@admin.register(Tenant)
-class TenantAdmin(admin.ModelAdmin):
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
     list_display = ("first_name", "last_name")

@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Tenant(models.Model):
+class Employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
 

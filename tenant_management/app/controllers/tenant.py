@@ -4,13 +4,13 @@ from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from tenant_management.app.models.tenant import Tenant
+from tenant_management.app.models.employee import Employee
 from tenant_management.app.serializers.tenant import TenantSerializer
 
 
-class TenantListCreateAPIView(APIView, LimitOffsetPagination):
+class EmployeeListCreateAPIView(APIView, LimitOffsetPagination):
     def get(self, request):
-        tenants_qs = Tenant.objects.all()
+        tenants_qs = Employee.objects.all()
         page = self.paginate_queryset(tenants_qs, request, view=self)
         if page is not None:
             serializer = TenantSerializer(page, many=True)
@@ -31,13 +31,13 @@ class TenantListCreateAPIView(APIView, LimitOffsetPagination):
 class TenantRetrieveUpdateDeleteAPIView(APIView):
     @staticmethod
     def get(request, pk):
-        tenant = get_object_or_404(Tenant, pk=pk)
+        tenant = get_object_or_404(Employee, pk=pk)
         serializer = TenantSerializer(tenant)
         return Response(serializer.data)
 
     @staticmethod
     def put(request, pk):
-        tenant = get_object_or_404(Tenant, pk=pk)
+        tenant = get_object_or_404(Employee, pk=pk)
         serializer = TenantSerializer(tenant, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -46,6 +46,6 @@ class TenantRetrieveUpdateDeleteAPIView(APIView):
 
     @staticmethod
     def delete(request, pk):
-        tenant = get_object_or_404(Tenant, pk=pk)
+        tenant = get_object_or_404(Employee, pk=pk)
         tenant.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
