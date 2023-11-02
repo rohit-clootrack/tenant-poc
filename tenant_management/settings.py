@@ -10,9 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import environ
 import os
 from pathlib import Path
+
+import environ
 
 env = environ.Env(DEBUG=(bool, False))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -59,7 +60,7 @@ TENANT_MODEL = "tenant.Tenant"
 TENANT_DOMAIN_MODEL = "tenant.Domain"
 
 MIDDLEWARE = [
-    "django_tenants.middleware.main.TenantMainMiddleware",
+    "tenant_management.app.utils.middlewares.CustomMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -102,17 +103,15 @@ WSGI_APPLICATION = "tenant_management.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django_tenants.postgresql_backend",
-        'NAME': env("POSTGRES_DB"),
-        'USER': env("POSTGRES_USER"),
-        'PASSWORD': env("POSTGRES_PASSWORD"),
-        'HOST': env('POSTGRES_HOST'),
-        'PORT': env("POSTGRES_PORT"),
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": env("POSTGRES_HOST"),
+        "PORT": env("POSTGRES_PORT"),
     }
 }
 
-DATABASE_ROUTERS = (
-    'django_tenants.routers.TenantSyncRouter',
-)
+DATABASE_ROUTERS = ("django_tenants.routers.TenantSyncRouter",)
 
 
 # Password validation
@@ -175,4 +174,4 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
-SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
+SHOW_PUBLIC_IF_NO_TENANT_FOUND = False
