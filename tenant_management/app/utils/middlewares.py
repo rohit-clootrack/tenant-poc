@@ -3,6 +3,13 @@ from django_tenants.middleware import TenantMainMiddleware
 from django_tenants.postgresql_backend.base import FakeTenant
 
 
+def set_custom_schema(request, schema_name):
+    tenant = FakeTenant(tenant_type=None, schema_name=schema_name)
+    tenant.domain_url = schema_name
+    request.tenant = tenant
+    connection.set_tenant(request.tenant)
+
+
 class CustomMiddleware(TenantMainMiddleware):
     @staticmethod
     def hostname_from_request(request):
